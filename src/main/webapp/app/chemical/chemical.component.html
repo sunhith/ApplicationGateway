@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="left-half">
+        <div class="facilities-container">
+            <h1>{{facilityServiceName}}</h1>
+            <h1>Facility List</h1>
+            <div class="facility-grid">
+              <div *ngFor="let facility of facilities" class="facility-box">
+                <div class="box-content">
+                  <strong>Facility Name:</strong> {{ facility.facilityName }}<br>
+                  <strong>Location:</strong> {{ facility.location }}<br>
+                  <strong>Facility Type:</strong> {{ facility.facilityType }}
+                </div>
+              </div>
+              <p *ngIf="facilities.length === 0">No facilities found.</p>
+            </div>
+          </div>
+    </div>
+    <div>
+
+    </div>
+    <div class="right-half">
+          <div class="search-container">
+            <h1>{{chemicalServiceName}}</h1>
+            <h1>Chemical Search</h1>
+            <form (ngSubmit)="searchByCas()">
+              <label for="cas-input">Enter CAS Number:</label>
+              <input type="text" id="cas-input" name="casNumber" [(ngModel)]="casNumber" required>
+              <button type="submit">Search</button>
+            </form>
+          </div>
+          
+          <div class="results-container" *ngIf="!searchNotFound && searchResults">
+            <h2>Search Results:</h2>
+            <div class="results-card">
+              <div class="card-content">
+                <strong>Chemical Of Interest:</strong> {{ searchResults.chemicalOfInterest }}<br>
+                <strong>Synonym:</strong> {{ searchResults.synonym }}<br>
+                <strong>CAS:</strong> {{ searchResults.cas }}
+              </div>
+            </div>
+          </div>
+          <p *ngIf="searchNotFound">No chemical found for the given CAS number.</p>
+    </div>
+    <div class="features">
+        <h2>Features:</h2>
+        <div class="button-container">
+          <button *ngFor="let feature of features" class="feature-button">{{ feature }}</button>
+        </div>
+      </div>
+</div>

@@ -5,6 +5,7 @@ import { navbarRoute } from './layouts/navbar/navbar.route';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
+import { ChemicalComponent } from './chemical/chemical.component';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -23,6 +24,14 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         {
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.ApplicationgatewayAccountModule)
+        },
+        {
+          path: 'chemical',
+          component: ChemicalComponent,
+          data: {
+            authorities: ['ROLE_ADMIN']
+          },
+          canActivate: [UserRouteAccessService]
         },
         ...LAYOUT_ROUTES
       ],

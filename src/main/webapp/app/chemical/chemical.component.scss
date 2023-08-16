@@ -1,0 +1,59 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.left-half,
+.right-half {
+  flex: 1;
+  padding: 0px;
+
+  height: 100%;
+}
+
+.left-half {
+  background-color: lightblue;
+}
+
+.right-half {
+  background-color: lightgreen;
+}
+
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.facility-box {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box-content {
+  margin: 10px 0;
+}
+
+.button-container {
+  display: flex; /* Use flexbox to align items */
+  gap: 10px; /* Adjust the value to control the space between buttons */
+}
+
+.feature-button {
+  padding: 10px 20px; /* Add padding to the buttons for better visibility */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
